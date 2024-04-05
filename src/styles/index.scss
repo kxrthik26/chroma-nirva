@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 14px;
+  font-family: "GeneralSans-Variable";
+  background: $neutral-930;
+  color: $neutral-0;
+  scroll-behavior: smooth;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: $neutral-900;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: $neutral-930;
+}

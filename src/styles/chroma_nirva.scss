@@ -1,0 +1,195 @@
+.app-container {
+  @include flex-layout(column, auto, auto, auto, 3rem);
+  padding: 3rem;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 1000;
+  background-image: url("./resources/images/starry_background.jpeg");
+  background-size: cover;
+  animation: moveStars 30s linear infinite;
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+.app-content {
+  @include flex-layout(column, auto, auto, auto, 2rem);
+  flex: 1;
+}
+
+.bg-gradient {
+  position: absolute;
+  // top: 0;
+  // left: 50%;
+  // transform: translate(-50%, 50%);
+  overflow: hidden;
+  width: 5rem;
+  height: 50%;
+  animation: bounce 4s infinite alternate;
+  z-index: -999;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, 50%);
+  }
+  50% {
+    transform: translate(-50%, 30%);
+  }
+  100% {
+    transform: translate(-50%, 50%);
+  }
+}
+
+.navigation {
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    animation: slideIn 0.5s ease forwards;
+    cursor: pointer;
+    color: $neutral-400;
+  }
+
+  li {
+    // Styles for individual list items
+    // Example styles:
+    padding: 10px;
+    transition: background-color 0.3s ease; // Add transition for smooth color change
+  }
+
+  li:hover {
+    color: $neutral-0;
+  }
+
+  li.active {
+    font-weight: bold;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section {
+  @include flex-layout(column, center, center, wrap, 1rem);
+  flex: 1;
+  h1,
+  p {
+    margin: 0;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+h1,
+h5 {
+  background: linear-gradient(to right, #ffffff, #71717a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes racecar-hover {
+  0% {
+    border-radius: 50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    border-radius: 50%;
+    transform: rotate(360deg);
+  }
+}
+
+.btn-custom-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-custom-animation::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  border-radius: 50%;
+  animation: racecar-hover 1.5s linear infinite;
+}
+
+.btn-custom-animation:hover::before {
+  border-color: $neutral-800;
+}
+
+.upload-instructions-section {
+  @include flex-layout(row, space-between, flex-end, auto, auto);
+  .upload-guidelines-wrapper {
+    h5 {
+      margin: 0;
+      margin-bottom: 0.3rem;
+    }
+    ul {
+      list-style-type: "+  ";
+      padding-left: 0.85rem;
+
+      li {
+        line-height: 1.5;
+        color: $neutral-300;
+      }
+    }
+  }
+}
+
+.ant-upload-wrapper {
+  flex: 1;
+
+  p {
+    text-align: center;
+    font-size: 2.2rem;
+    line-height: 3rem;
+    background: linear-gradient(to right, #ffffff, #71717a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.results-wrapper {
+  @include flex-layout(row, auto, center, auto, 2rem);
+  flex: 1;
+
+  img {
+    flex: 1;
+    background: $neutral-930;
+    height: auto;
+    min-height: 10rem;
+    border-radius: 0.4rem;
+  }
+}
+
+.results-actions-widget {
+  @include flex-layout(row, center, center, auto, 0.5rem);
+  background: $neutral-930;
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  border-radius: 100rem;
+  max-width: 13rem;
+  margin: auto;
+}

@@ -1,0 +1,35 @@
+.header {
+  @include flex-layout(row, space-between, right, nowrap, auto);
+
+  img {
+    height: 3.7rem;
+  }
+
+  .header-content-right {
+    @include flex-layout(column, right, right, nowrap, 0.4rem);
+
+    h5 {
+      margin: 0;
+      span {
+        font-family: "GeneralSans-Regular";
+        color: $primary-clr;
+      }
+    }
+    p {
+      margin: 0;
+      text-align: right;
+      color: $neutral-500;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.header {
+  @include flex-layout(row, auto, center, auto, 1rem);
+  img {
+    height: 1.5rem;
+  }
+}
